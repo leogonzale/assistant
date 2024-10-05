@@ -4,18 +4,22 @@ from openai import OpenAI
 import logging
 import datetime
 
-log = logging.getLogger("assistant")
+log = logging.getLogger('assistant')
 
-logging.basicConfig(filename = "assistant.log", level = logging.INFO)
+logging.basicConfig(filename='assistant.log', level=logging.INFO)
 
 client = OpenAI()
+model = 'gpt-3.5-turbo'
 
-curriculum_knowledge = client.files.create(
-    file = open("knowledge/OpenAIChatCompletionsAPICheatsheet.pdf", "rb"),
-    purpose = "assistants"
-)
 
-print(curriculum_knowledge)
+# After uploading the file to the OpenAI platform, this block of code and print statement can be removed and the code below can be uncommented.
+
+curriculum_knowledge = client.files.create(file=open('knowledge/OpenAIChatCompletionsAPICheatsheet.pdf'
+                        , 'rb'), purpose='assistants')
+
+
+print (curriculum_knowledge)
+
 
 # def process_run(thread_id, assistant_id):
 #      new_run = client.beta.threads.runs.create(
